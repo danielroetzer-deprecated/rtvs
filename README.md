@@ -2,7 +2,7 @@
   <a href="">
     <img src="public/favicon/js-favicon.png">
   </a>
-  <p align="center">**Creating a real time voting system with node.js and co.**</p>
+  <p align="center"><strong>Creating a real time voting system with node.js and co.</strong></p>
 </p>
 
 
