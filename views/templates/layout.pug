@@ -1,0 +1,35 @@
+//
+   Created by Rötzer on 16.11.2016.
+
+doctype html
+html
+    head
+        //set the page title
+        title= title
+
+        //load css files
+        link(href='bootstrap/css/bootstrap.min.css', rel='stylesheet', type='text/css')
+        link(href='css/rvp.css', rel='stylesheet', type='text/css')
+
+        //responsive meta tag
+        meta(name="viewport", content="width=device-width", initial-scale='1', shrink-to-fit='no')
+
+        //favicon
+        link(rel="icon", href="favicon/favicon.ico")
+
+    body
+        nav.navbar.navbar-fixed-top.navbar-full.navbar-dark.bg-inverse
+            a.navbar-brand(href='/') RVP
+            ul.nav.navbar-nav.float-xs-right
+                li.nav-item
+                    a.nav-link(href='/' , class=active_home) Home
+                li.nav-item
+                    a.nav-link(href='/about', class=active_about) About Us
+                li.nav-item
+                    a.nav-link(href='/create' , class=active_create) Create Poll
+                li.nav-item
+                    a.nav-link(href='/available' , class=active_available) Available Polls
+
+        br
+        br
+        block content

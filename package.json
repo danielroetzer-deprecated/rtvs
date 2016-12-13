@@ -1,0 +1,49 @@
+{
+  "name": "rvp",
+  "version": "1.0.0",
+  "description": "Building a Real Time Voting App",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha tests/mocha.js",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielroetzer/RVP-Repository.git"
+  },
+  "keywords": [
+    "Node.js",
+    "Express",
+    "Real-Time",
+    "Pug",
+    "RethinkDB",
+    "Winston",
+    "Morgan"
+  ],
+  "author": "Daniel Rötzer",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/danielroetzer/RVP-Repository/issues"
+  },
+  "homepage": "https://github.com/danielroetzer/RVP-Repository#readme",
+  "dependencies": {
+    "async": "^2.1.2",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "morgan": "^1.7.0",
+    "pug": "^2.0.0-beta6",
+    "rethinkdb": "^2.3.3",
+    "winston": "^2.3.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.12.0",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.2.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-eslint": "^3.0.1",
+    "gulp-less": "^3.3.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^2.0.0",
+    "mocha": "^3.2.0"
+  }
+}
