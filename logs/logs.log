@@ -1,0 +1,1 @@
+{"level":"error","message":"Failed to connect to the database \nReqlDriverError: Could not connect to localhost:28015.\nconnect ECONNREFUSED 127.0.0.1:28015","timestamp":"2016-11-23T08:56:07.319Z"}

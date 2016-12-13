@@ -1,0 +1,24 @@
+extends templates/layout
+
+block content
+    div.container
+        h1.header Create Poll
+
+
+        div.poll
+            form.poll-form(method='POST', action='/create')
+                input.question-form(type='text', placeholder='Enter Poll Title')
+                br
+                input.question-form(type='text', placeholder='Enter Question')
+            br
+
+
+
+    //
+            button.btn.btn-primary +++
+
+            br
+
+            button.btn.btn-primary New Question
+
+            br
