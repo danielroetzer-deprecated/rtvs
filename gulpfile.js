@@ -7,57 +7,63 @@ const gulp = require('gulp');
 
 // Include Our Plugins
 const eslint = require('gulp-eslint'),
-    less = require('gulp-less'),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
     rename = require('gulp-rename'),
-    cleanCSS = require('gulp-clean-css');
+    cleanCSS = require('gulp-clean-css'),
+    stylus = require('gulp-stylus');
 
 
-const input  = {
-    'less': 'less/rvp.less',
+//Defining some paths
+const src  = {
+    'stylus': 'stylus/index.styl',
+    'stylusAll': 'stylus/**/*.styl',
     'js': 'js/**/*.js',
+    'lint': ['**/*.js', '!node_modules/**', '!public/**']
 };
 
-const output = {
+const dest = {
     'css': 'public/css',
     'js': 'public/js'
 };
 
+
+
 //Lint task
 gulp.task('lint', () => {
-    return gulp.src(['**/*.js','!node_modules/**','!public/**'])
+    return gulp.src(src.lint)
         .pipe(eslint())
         .pipe(eslint.format());
 });
 
 
-// Concatenate & Minify JS
+// Concatenate & minify js
 gulp.task('scripts', function() {
-    return gulp.src(input.js)
-        .pipe(concat('jada.js'))
-        .pipe(gulp.dest(output.js))
-        .pipe(rename('jada.min.js'))
+    return gulp.src(src.js)
+        .pipe(concat('rtvs.js'))
+        .pipe(gulp.dest(dest.js))
+        .pipe(rename('rtvs.min.js'))
         .pipe(uglify())
-        .pipe(gulp.dest(output.js));
+        .pipe(gulp.dest(dest.js));
 });
 
 
-//Compile less to css and minify css
-gulp.task('less', function(){
-    gulp.src(input.less)
-        .pipe(less())
-        .pipe(gulp.dest(output.css))
-        .pipe(rename('jada.min.css'))
+//Compile stylus to css & minify it
+gulp.task('stylus', function () {
+    return gulp.src(src.stylus)
+        .pipe(stylus())
+        .pipe(rename('rtvs.css'))
+        .pipe(gulp.dest(dest.css))
+        .pipe(rename('rtvs.min.css'))
         .pipe(cleanCSS())
-        .pipe(gulp.dest(output.css));
+        .pipe(gulp.dest(dest.css));
 });
 
 
 // Watch Files For Changes
 gulp.task('watch', function() {
-    gulp.watch(input.js, ['lint', 'scripts']);
-    gulp.watch(input.less, ['less']);
+    gulp.watch(src.lint, ['lint', 'scripts']);
+    gulp.watch(src.stylusAll, ['stylus']);
 });
 
 
