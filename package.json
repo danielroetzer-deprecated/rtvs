@@ -1,7 +1,7 @@
 {
-  "name": "rvp",
+  "name": "rtvs",
   "version": "1.0.0",
-  "description": "Building a Real Time Voting App",
+  "description": "Building a Real Time Voting System",
   "main": "index.js",
   "scripts": {
     "test": "mocha tests/mocha.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/danielroetzer/RVP-Repository.git"
+    "url": "git+https://github.com/danielroetzer/rtvs.git"
   },
   "keywords": [
     "Node.js",
@@ -23,9 +23,9 @@
   "author": "Daniel Rötzer",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/danielroetzer/RVP-Repository/issues"
+    "url": "https://github.com/danielroetzer/rtvs/issues"
   },
-  "homepage": "https://github.com/danielroetzer/RVP-Repository#readme",
+  "homepage": "https://github.com/danielroetzer/rtvs#readme",
   "dependencies": {
     "async": "^2.1.2",
     "body-parser": "^1.15.2",
@@ -41,8 +41,8 @@
     "gulp-clean-css": "^2.2.2",
     "gulp-concat": "^2.6.1",
     "gulp-eslint": "^3.0.1",
-    "gulp-less": "^3.3.0",
     "gulp-rename": "^1.2.2",
+    "gulp-stylus": "^2.6.0",
     "gulp-uglify": "^2.0.0",
     "mocha": "^3.2.0"
   }
