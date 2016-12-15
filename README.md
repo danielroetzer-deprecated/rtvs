@@ -1,4 +1,6 @@
-![js-black](https://cloud.githubusercontent.com/assets/22315154/21239876/190b3966-c309-11e6-9a5d-38a516639d47.png)
+<p align="center" max-height="200px">
+  ![js-black](https://cloud.githubusercontent.com/assets/22315154/21239876/190b3966-c309-11e6-9a5d-38a516639d47.png)
+</p>
 
 
 # rtvs - Real Time Voting System
