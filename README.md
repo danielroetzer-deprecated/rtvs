@@ -1,10 +1,5 @@
-<p align="center">
-  <a href="">
-    <img src="public/favicon/js-favicon.png">
-  </a>
-  <p align="center"><strong>Creating a real time voting system with node.js and co.</strong></p>
-</p>
+![js-black](https://cloud.githubusercontent.com/assets/22315154/21239876/190b3966-c309-11e6-9a5d-38a516639d47.png)
 
 
-## rtvs - Real Time Voting System
+# rtvs - Real Time Voting System
 I am creating a voting system with specific types of questions like multiple choice and so on. 
