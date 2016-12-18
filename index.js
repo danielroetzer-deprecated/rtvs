@@ -90,12 +90,19 @@ app.use(function(err, req, res, next) {
     res.status(err.status || 500);
     res.render('templates/error');
 });
-
-
+/*
+config.db.tables.forEach(function (item) {
+    logger.log('silly',item);
+});*/
+/*
+for (let i=0, len = config.db.tables.length; i < len; i++){
+    logger.log('silly',config.db.tables[i]);
+    logger.log('silly',config.db.keys[i]);
+}*/
 
 //Load Database file and load the first setup
 //======================================================
-/*const db = require('./models/db.js');
+const db = require('./models/db.js');
 
 logger.log('info','loading database setup...');
-db.initDB();*/
+db.initDB();

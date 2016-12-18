@@ -11,7 +11,8 @@ const eslint = require('gulp-eslint'),
     uglify = require('gulp-uglify'),
     rename = require('gulp-rename'),
     cleanCSS = require('gulp-clean-css'),
-    stylus = require('gulp-stylus');
+    stylus = require('gulp-stylus'),
+    pugLint = require('gulp-pug-lint');
 
 
 //Defining some paths
@@ -19,7 +20,8 @@ const src  = {
     'stylus': 'stylus/index.styl',
     'stylusAll': 'stylus/**/*.styl',
     'js': 'js/**/*.js',
-    'lint': ['**/*.js', '!node_modules/**', '!public/**']
+    'lint': ['**/*.js', '!node_modules/**', '!public/**'],
+    'pugLint': 'views/**/*.pug'
 };
 
 const dest = {
@@ -34,6 +36,12 @@ gulp.task('lint', () => {
     return gulp.src(src.lint)
         .pipe(eslint())
         .pipe(eslint.format());
+});
+
+//Pug lint task
+gulp.task('pug-lint', () => {
+    return gulp.src(src.pugLint)
+        .pipe(pugLint());
 });
 
 
@@ -68,4 +76,4 @@ gulp.task('watch', function() {
 
 
 // Default Task
-gulp.task('default', ['lint','watch']);
+gulp.task('default', ['lint','pug-lint','watch']);

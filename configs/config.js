@@ -16,8 +16,18 @@ module.exports = {
     },
     db: {
         name: 'rtvs',
-        tables: []
-
+        tables: [
+            'user',
+            'mail_groups',
+            'poll',
+            'answers'
+        ],
+        keys: [
+            'mail',
+            'id',
+            'id',
+            'id'
+        ]
     }
 };
 
