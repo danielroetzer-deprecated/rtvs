@@ -32,14 +32,14 @@ const dest = {
 
 
 //Lint task
-gulp.task('lint', () => {
+gulp.task('lint', function() {
     return gulp.src(src.lint)
         .pipe(eslint())
         .pipe(eslint.format());
 });
 
 //Pug lint task
-gulp.task('pug-lint', () => {
+gulp.task('pug-lint', function() {
     return gulp.src(src.pugLint)
         .pipe(pugLint());
 });
