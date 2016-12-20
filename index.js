@@ -90,19 +90,32 @@ app.use(function(err, req, res, next) {
     res.status(err.status || 500);
     res.render('templates/error');
 });
-/*
-config.db.tables.forEach(function (item) {
-    logger.log('silly',item);
-});*/
-/*
-for (let i=0, len = config.db.tables.length; i < len; i++){
-    logger.log('silly',config.db.tables[i]);
-    logger.log('silly',config.db.keys[i]);
-}*/
+
 
 //Load Database file and load the first setup
 //======================================================
 const db = require('./models/db.js');
 
 logger.log('info','loading database setup...');
-db.initDB();
+
+//db.initDB();
+
+
+const mail='daniel.roetzer@gmail.com',
+    forename='Daniel',
+    surname='Rötzer',
+    passw='1234';
+
+
+
+//db.createUser(mail,forename,surname,passw);
+
+const user_mail='daniel.roetzer@gmail.com';
+const name='5AHITM';
+let mail_addresses = [];
+mail_addresses.push('jakob.auer@gmail.com');
+mail_addresses.push('lukas.liebscher@gmail.com');
+mail_addresses.push('daniel.lampl@gmail.com');
+mail_addresses.push('georg.peyerl@gmail.com');
+
+db.createMailGroup(user_mail, name, mail_addresses);
