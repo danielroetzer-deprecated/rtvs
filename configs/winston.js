@@ -6,7 +6,6 @@
 //Load Winston logger and initialize it
 //======================================================
 const winston = require('winston');
-winston.emitErrs = true;
 
 
 const logger = new winston.Logger({
@@ -38,6 +37,9 @@ const logger = new winston.Logger({
 
 //Exit after logging an uncaughtException (default=true)
 logger.exitOnError = true;
+
+//Emit errors
+logger.emitErrs = true;
 
 
 module.exports = logger;
