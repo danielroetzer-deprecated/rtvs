@@ -22,6 +22,7 @@ module.exports = {
     createMailGroup
 };
 
+
 //Initialize DB -> Called one time on server start
 //async.waterfall([]) executes all defined function in a row
 //The connection variable must be given to the other functions with callback()

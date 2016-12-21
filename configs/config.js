@@ -7,19 +7,21 @@ module.exports = {
     rethinkdb: {
         host: 'localhost',
         port: 28015,
-        authKey: '',
-        db: 'rethinkdb_ex'
+        db: 'rtvs',
+        user: 'admin',
+        password: '',
+        timeout: 20,
+        ssl: null
     },
     server: {
         host: 'localhost',
         port: 3000
     },
-    db: {
-        name: 'rtvs',
+    tablesAndKeys: {
         tables: [
-            'user',
+            'users',
             'mail_groups',
-            'poll',
+            'polls',
             'answers'
         ],
         keys: [

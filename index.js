@@ -92,11 +92,21 @@ app.use(function(err, req, res, next) {
 });
 
 
+
 //Load Database file and load the first setup
 //======================================================
-const db = require('./models/db.js');
+/*Uncomment, if the database + tables need to be created
+const db = require('./models/index');
 
 logger.log('info','loading database setup...');
+db.setup();
+*/
+
+
+
+/*
+db_OLD.js
+
 
 //db.initDB();
 
@@ -118,4 +128,5 @@ mail_addresses.push('lukas.liebscher@gmail.com');
 mail_addresses.push('daniel.lampl@gmail.com');
 mail_addresses.push('georg.peyerl@gmail.com');
 
-db.createMailGroup(user_mail, name, mail_addresses);
+//db.createMailGroup(user_mail, name, mail_addresses);
+*/
