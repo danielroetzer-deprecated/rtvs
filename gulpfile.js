@@ -76,4 +76,4 @@ gulp.task('watch', function() {
 
 
 // Default Task
-gulp.task('default', ['lint','pug-lint','watch']);
+gulp.task('default', ['watch']);
