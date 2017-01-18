@@ -14,3 +14,7 @@ node_modules
 *.log
 logs/logs.log
 *.log
+logs/access-logs.log
+logs/exceptions.log
+*.log
+logs/logs.log
