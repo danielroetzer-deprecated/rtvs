@@ -1,5 +1,11 @@
 extends templates/layout
 
+block append head
+    //Load jquery
+    script(src='js/jquery/jquery-3.1.1.min.js')
+
+    script(src='js/rtvs.min.js')
+
 block content
     div.container
         h1.header Create Poll
@@ -14,7 +20,7 @@ block content
 
 
 
-    //
+        //
             button.btn.btn-primary +++
 
             br
@@ -22,3 +28,29 @@ block content
             button.btn.btn-primary New Question
 
             br
+
+        br
+        br
+
+
+        form
+            | Poll Title:
+            input(type='text', name='pollTitle', placeholder='Enter poll title here')
+            br
+            br
+
+            h3.header Question
+            input(type='text', name='question1', placeholder='Enter question here')
+            br
+            br
+            | Choose question type
+            select.type1#type1(name='type1')
+                option(value='multipleChoice') Multiple Choice
+                option(value='singleChoice') Single Choice
+                option(value='textArea') Text Area
+
+            span.changeMe Untouched
+            br
+            span.changeMe Untouched
+
+
