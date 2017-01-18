@@ -53,12 +53,14 @@ logger.log('verbose','view engine set to pug');
 require('./routes/routes')(app);
 logger.log('verbose','routing paths set');
 
-
+/*
 //Load and initialize the body parser module
 //======================================================
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
+*/
+
 
 
 //Listener
@@ -95,12 +97,46 @@ app.use(function(err, req, res, next) {
 
 //Load Database file and load the first setup
 //======================================================
-/*Uncomment, if the database + tables need to be created
-const db = require('./models/index');
+//Uncomment, if the database + tables need to be created
+/*const db = require('./models/index');
 
 logger.log('info','loading database setup...');
-db.setup();
+db.setup();*/
+
+
+
+
+const polls = require('./models/polls');
+
+
+/*
+polls.createPoll('poll_name','creator',['mail1,mail2'],['group1','group2'],false,{
+    question_title1: {
+        type: 'multi',
+        content: [
+            'choice1',
+            'choice2',
+            'choice3',
+            'choice4'
+        ]
+    },
+    question_title2: {
+        type: 'multi',
+        content: [
+            'choice1',
+            'choice2',
+            'choice3',
+            'choice4'
+        ]
+    }
+}, 'today', 'tomorrow', 'public');
 */
+
+/*
+const testa = require('./models/test');
+const dbTest = new testa();
+const x = dbTest.getAllPublicPolls();
+logger.log('silly',x);*/
 
 
 
