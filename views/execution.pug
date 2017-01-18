@@ -1,0 +1,26 @@
+extends templates/layout
+
+block content
+    .container
+        span= id
+        br
+        br
+        span= pollName
+
+        br
+        br
+        br
+
+        ul
+            each value, index in result
+                if (value=='[object Object]')
+                    li= index + ':'
+                    ul
+                        each x in value
+                            each y,z in x
+                                li= z + ':'
+                                ul
+                                    each u,w in y
+                                        li= w + ': ' + u
+                else
+                    li= index + ': ' + value

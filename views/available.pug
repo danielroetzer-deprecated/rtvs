@@ -3,3 +3,38 @@ extends templates/layout
 block content
     div.container
         h1.header Available Polls
+
+        p.
+            Here you find all polls, which are available for you.
+
+        h2.header Public Polls
+
+        div
+            each item in public_polls
+                each value, index in item
+                    if (index=='creator')
+                        - var creator = value;
+                    else if(index=='id')
+                        - var id = value;
+                    else
+                        form(method='POST', action='pollExecution')
+                            span= id
+                            input(type='hidden', name='id', value=id)
+                            br
+                            span= value
+                            input(type='hidden', name='pollName', value=value)
+                            br
+                            input(type='submit', value='Execute this Poll')
+
+            else
+                span Sorry there are no polls available
+
+
+        h2.header Private Polls
+
+
+        //
+            ul
+                each item in public_polls
+                    each value, index in item
+                        li= index + ': ' + value

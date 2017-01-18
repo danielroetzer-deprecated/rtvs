@@ -1,6 +1,24 @@
 //
    Created by Rötzer on 16.11.2016.
 
+-
+    //Create variables for the active nav item
+    var active_home = false;
+    var active_about = false;
+    var active_create = false;
+    var active_available = false;
+
+    //Set the active item to true
+    if(active_item=='home')
+        active_home = true;
+    else if(active_item=='about')
+        active_about = true;
+    else if(active_item=='create')
+        active_create = true;
+    else if(active_item=='available')
+        active_available = true;
+
+
 doctype html
 html
     head
@@ -19,16 +37,16 @@ html
 
     body
         nav.navbar.navbar-fixed-top.navbar-full.navbar-dark.bg-inverse
-            a.navbar-brand(href='/') RVP
+            a.navbar-brand(href='/') RTVS
             ul.nav.navbar-nav.float-xs-right
                 li.nav-item
-                    a.nav-link(href='/' , class=active_home) Home
+                    a.nav-link(href='/' , class=active_home ? 'active' : '') Home
                 li.nav-item
-                    a.nav-link(href='/about', class=active_about) About Us
+                    a.nav-link(href='/about', class=active_about ? 'active' : '') About Us
                 li.nav-item
-                    a.nav-link(href='/create' , class=active_create) Create Poll
+                    a.nav-link(href='/create' , class=active_create ? 'active' : '') Create Poll
                 li.nav-item
-                    a.nav-link(href='/available' , class=active_available) Available Polls
+                    a.nav-link(href='/available' , class=active_available ? 'active' : '') Available Polls
 
         br
         br
