@@ -21,7 +21,8 @@ module.exports = {
     aboutAction,
     createAction,
     availableAction,
-    pollExecutionAction
+    pollExecutionAction,
+    storeAction
 };
 
 //Call index page
@@ -112,12 +113,38 @@ function pollExecutionAction(req, res){
 
 }
 
+function storeAction(req, res) {
+    //const xxx = req.body.pollTitle;
+
+    logger.log('silly',req.body.pollTitle);
+    logger.log('silly',req.body.question1);
+
+    //const questionTitle1 = req.body.question1;
+
+    polls.createPoll(req.body.pollTitle,'admin',['user1@gmail.com','user2@gmail.com'],['no group'], false,{
+        question1: {
+            type: 'multi',
+            title: req.body.question1,
+            content: [
+                'choice1',
+                'choice2',
+                'choice3',
+                'choice4'
+            ]
+        }
+    },'today','tomorrow','public');
+
+    res.render('store', {
+        title: 'Storing Poll Data... - RTVS',
+    });
+}
 
 
+/*
 //Log messages on success
 function success(result, msg) {
     logger.log('verbose',msg + '\n' + JSON.stringify(result, null, 2));
-}
+}*/
 
 //Log messages on error
 function checkError(err, msg) {
