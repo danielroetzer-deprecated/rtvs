@@ -28,6 +28,7 @@
     },
     "globals": {
         "describe": false,
-        "it": false
+        "it": false,
+        "$": false
     }
 }

@@ -19,4 +19,5 @@ module.exports = function (app) {
     app.get('/available', controller.availableAction);
 
     app.post('/pollExecution', controller.pollExecutionAction);
+    app.post('/store', controller.storeAction);
 };

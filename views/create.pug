@@ -34,7 +34,7 @@ block content
         br
 
 
-        form
+        form(action='/store', method='POST')
             | Poll Title:
             input(type='text', name='pollTitle', placeholder='Enter poll title here')
             br
@@ -52,7 +52,21 @@ block content
 
             div.xxx1#xxx1
                 span.changeMe Untouched
-                br
                 span.changeMe Untouched
 
+                br
+                br
 
+                div.inner1
+                    input.multi1(type='text', name='multi1', placeholder='Enter text for checkbox here')
+                    br
+                    input.multi1(type='text', name='multi1', placeholder='Enter text for checkbox here')
+                    br
+                    input.multi1(type='text', name='multi1', placeholder='Enter text for checkbox here')
+                    br
+                    input.multi1(type='text', name='multi1', placeholder='Enter text for checkbox here')
+
+            br
+            br
+
+            input(type='submit', value='Create Poll')
