@@ -11,12 +11,13 @@ block content
         h1.header Create Poll
 
 
-        div.poll
-            form.poll-form(method='POST', action='/create')
-                input.question-form(type='text', placeholder='Enter Poll Title')
+        //
+            div.poll
+                form.poll-form(method='POST', action='/create')
+                    input.question-form(type='text', placeholder='Enter Poll Title')
+                    br
+                    input.question-form(type='text', placeholder='Enter Question')
                 br
-                input.question-form(type='text', placeholder='Enter Question')
-            br
 
 
 
@@ -45,12 +46,13 @@ block content
             br
             | Choose question type
             select.type1#type1(name='type1')
-                option(value='multipleChoice') Multiple Choice
-                option(value='singleChoice') Single Choice
-                option(value='textArea') Text Area
+                option(value='1') Multiple Choice
+                option(value='2') Single Choice
+                option(value='3') Text Area
 
-            span.changeMe Untouched
-            br
-            span.changeMe Untouched
+            div.xxx1#xxx1
+                span.changeMe Untouched
+                br
+                span.changeMe Untouched
 
 
