@@ -3,8 +3,6 @@
  */
 
 
-const polls = require('../models/polls');
-
 //Load logger
 const logger = require('../configs/winston');
 
@@ -15,8 +13,6 @@ const config = require('../configs/config');
 const r = require('rethinkdb');
 
 
-//const db = require('../models/db');
-
 module.exports = {
     indexAction,
     aboutAction,
@@ -25,8 +21,7 @@ module.exports = {
     pollExecutionAction,
     storeAction,
     storeAnswersAction,
-    showAnswersAction,
-    realTimeAction
+    showAnswersAction
 };
 
 //Call index page
@@ -116,20 +111,9 @@ function pollExecutionAction(req, res){
 }
 
 function storeAction(req, res) {
-    /*polls.createPoll(req.body.pollTitle,'admin',['user1@gmail.com','user2@gmail.com'],['no group'], false,{
-        question1: {
-            type: 'multi',
-            title: req.body.question1,
-            content: [
-                req.body.multi00,
-                req.body.multi01,
-                req.body.multi02,
-                req.body.multi03
-            ]
-        }
-    },'today','tomorrow','public');*/
 
     let questions = {};
+
     if(req.body.hiddenType1=='text'){
         questions = {
             question1: {
@@ -305,44 +289,6 @@ function showAnswersAction(req, res){
         });
     }
 
-}
-
-
-
-function realTimeAction(req, res) {
-
-
-    /*r.connect(config.rethinkdb, function (err, conn) {
-        if (err) checkError(err, 'controllers/controller.js -> realTimeAction()');
-        else{
-            r.table('polls').pluck('id','creator').changes().run(conn,function (err, cursor){
-                if (err) checkError(err, 'controllers/controller.js -> realTimeAction()');
-                else{
-
-
-
-                    io.sockets.on('connection', function(socket){
-
-                        cursor.each(function (err, results) {
-                            if (err) checkError(err, 'controllers/controller.js -> realTimeAction()');
-                            else{
-                                logger.log('silly', results);
-                                socket.emit('realtime', results);
-                            }
-                        });
-                    });
-
-
-                }
-            });
-        }
-    });*/
-
-
-    res.render('realtime', {
-        title: 'Testing... - RTVS',
-        active_item: ''
-    });
 }
 
 

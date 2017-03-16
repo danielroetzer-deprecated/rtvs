@@ -1,12 +1,7 @@
 /**
  * Created by Dani on 18.01.2017.
  */
-/*
-$(document).ready(function () {
-    $('#type1').change(function() {
-        $('.changeMe').text('success');
-    });
-})*/
+
 
 $(document).ready(function () {
     $('#type1').change(function() {
@@ -60,23 +55,16 @@ $(document).ready(function () {
                 +'</div>'
             );
         }
-
-        //$('<h4>It worked</h4>').replaceAll('.multi1');
-
     });
+});
+/**
+ * Created by Dani on 16.03.2017.
+ */
 
-    /*
+$(document).ready(function () {
     const socket = io.connect();
 
-    socket.on('realtime', function (data) {
-        $('#test').text('YES!!');
-        console.log('xxx');
-    });*/
-
+    socket.on('answerUpdate', function (data){
+        location.reload();
+    });
 });
-
-/*
- https://api.jquery.com/wrap/
- https://api.jquery.com/replaceAll/
- http://learn.jquery.com/using-jquery-core/faq/how-do-i-get-the-text-value-of-a-selected-option/
- */

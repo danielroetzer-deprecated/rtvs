@@ -1,38 +1,9 @@
 extends templates/layout
 
-block append head
-    //Load jquery
-    script(src='js/jquery/jquery-3.1.1.min.js')
-
-    script(src='js/rtvs.min.js')
-
 block content
     div.container
+
         h1.header Create Poll
-
-
-        //
-            div.poll
-                form.poll-form(method='POST', action='/create')
-                    input.question-form(type='text', placeholder='Enter Poll Title')
-                    br
-                    input.question-form(type='text', placeholder='Enter Question')
-                br
-
-
-
-        //
-            button.btn.btn-primary +++
-
-            br
-
-            button.btn.btn-primary New Question
-
-            br
-
-        br
-        br
-
 
         form(action='/store', method='POST')
             | Poll Title:
@@ -70,3 +41,8 @@ block content
             br
 
             input(type='submit', value='Create Poll')
+
+
+    //Load necessary javascript
+    script(src='js/jquery/jquery-3.1.1.min.js')
+    script(src='js/rtvs.min.js')

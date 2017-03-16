@@ -53,17 +53,6 @@ logger.log('verbose','view engine set to pug');
 require('./routes/routes')(app);
 logger.log('verbose','routing paths set');
 
-/*
-//Load and initialize the body parser module
-//======================================================
-const bodyParser = require('body-parser');
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
-*/
-
-
-
-
 
 
 
@@ -91,7 +80,8 @@ app.use(function(err, req, res) {
 
 
 
-
+//Setup for Socket.IO
+//======================================================
 const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 
@@ -108,49 +98,12 @@ io.on('connection', function(socket){
 
 
 //Listener
+//For Socket.IO we hav to use http.listen instead of app.listen
 //======================================================
 http.listen(config.server.port, function () {
     logger.log('info','express configured');
     logger.log('info','listening on port: ' + config.server.port);
 });
-
-
-
-/*
-io.sockets.on('connection', function(socket){
-
-    r.connect(config.rethinkdb, function (err, conn) {
-        if (err) checkError(err, 'controllers/controller.js -> realTimeAction()');
-        else{
-            r.table('polls').pluck('id','creator').changes().run(conn,function (err, cursor){
-                if (err) checkError(err, 'controllers/controller.js -> realTimeAction()');
-                else{
-
-
-
-                    io.sockets.on('connection', function(socket){
-
-                        cursor.each(function (err, results) {
-                            if (err) checkError(err, 'controllers/controller.js -> realTimeAction()');
-                            else{
-                                logger.log('silly', results);
-                                socket.emit('realtime', results);
-                            }
-                        });
-                    });
-
-
-                }
-            });
-        }
-    });
-});
-
-//Log messages on error
-function checkError(err, msg) {
-    logger.log('error',msg + '\n' + err);
-}*/
-
 
 
 
@@ -163,67 +116,3 @@ function checkError(err, msg) {
 
 logger.log('info','loading database setup...');
 db.setup();*/
-
-
-
-
-//const polls = require('./models/polls');
-
-
-/*
-polls.createPoll('poll_name','creator',['mail1,mail2'],['group1','group2'],false,{
-    question_title1: {
-        type: 'multi',
-        content: [
-            'choice1',
-            'choice2',
-            'choice3',
-            'choice4'
-        ]
-    },
-    question_title2: {
-        type: 'multi',
-        content: [
-            'choice1',
-            'choice2',
-            'choice3',
-            'choice4'
-        ]
-    }
-}, 'today', 'tomorrow', 'public');
-*/
-
-/*
-const testa = require('./models/test');
-const dbTest = new testa();
-const x = dbTest.getAllPublicPolls();
-logger.log('silly',x);*/
-
-
-
-/*
-db_OLD.js
-
-
-//db.initDB();
-
-
-const mail='daniel.roetzer@gmail.com',
-    forename='Daniel',
-    surname='Rötzer',
-    passw='1234';
-
-
-
-//db.createUser(mail,forename,surname,passw);
-
-const user_mail='daniel.roetzer@gmail.com';
-const name='5AHITM';
-let mail_addresses = [];
-mail_addresses.push('jakob.auer@gmail.com');
-mail_addresses.push('lukas.liebscher@gmail.com');
-mail_addresses.push('daniel.lampl@gmail.com');
-mail_addresses.push('georg.peyerl@gmail.com');
-
-//db.createMailGroup(user_mail, name, mail_addresses);
-*/

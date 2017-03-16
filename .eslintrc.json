@@ -27,8 +27,6 @@
         ]
     },
     "globals": {
-        "describe": false,
-        "it": false,
         "$": false
     }
 }

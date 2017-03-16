@@ -4,7 +4,6 @@
   "description": "Building a Real Time Voting System",
   "main": "index.js",
   "scripts": {
-    "test": "mocha tests/mocha.js",
     "start": "node index.js"
   },
   "repository": {
@@ -18,7 +17,11 @@
     "Pug",
     "RethinkDB",
     "Winston",
-    "Morgan"
+    "Morgan",
+    "Stylus",
+    "ESLint",
+    "Gulp",
+    "Socket.IO"
   ],
   "author": "Daniel Rötzer",
   "license": "Apache-2.0",
@@ -27,11 +30,8 @@
   },
   "homepage": "https://github.com/danielroetzer/rtvs#readme",
   "dependencies": {
-    "async": "^2.1.2",
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
-    "jquery": "^3.1.1",
-    "jsdom": "^9.11.0",
     "morgan": "^1.7.0",
     "pug": "^2.0.0-beta6",
     "rethinkdb": "^2.3.3",
@@ -47,7 +47,6 @@
     "gulp-pug-lint": "^0.1.6",
     "gulp-rename": "^1.2.2",
     "gulp-stylus": "^2.6.0",
-    "gulp-uglify": "^2.0.0",
-    "mocha": "^3.2.0"
+    "gulp-uglify": "^2.0.0"
   }
 }
