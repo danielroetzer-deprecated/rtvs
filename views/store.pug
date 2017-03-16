@@ -1,5 +1,10 @@
 extends templates/layout
 
 block content
+    br
+    br
     div.container
-        h2 Data successfully stored?
+        if(err==0)
+            div(class='alert alert-success', role='alert')= msg
+        else
+            div(class='alert alert-danger', role='alert')= msg

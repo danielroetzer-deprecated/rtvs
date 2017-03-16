@@ -20,4 +20,10 @@ module.exports = function (app) {
 
     app.post('/pollExecution', controller.pollExecutionAction);
     app.post('/store', controller.storeAction);
+
+    app.get('/realtime', controller.realTimeAction);
+
+    app.post('/storeAnswers', controller.storeAnswersAction);
+    app.post('/answers', controller.showAnswersAction);
+
 };

@@ -1,0 +1,33 @@
+extends templates/layout
+
+block append head
+    //Load jquery
+    script(src='js/jquery/jquery-3.1.1.min.js')
+
+block content
+    br
+    br
+    .container
+
+        each value0, index0 in answers
+            h4= index0 + ':'
+            ul
+                each value1, index1 in value0
+                    if(index1 == 'answers')
+                        ul
+                            each value2, index2 in value1
+                                each value3, index3 in value2
+                                    li= index3 + ':'
+                                    ul
+                                        each value4, index4 in value3
+                                            li= index4 + ': ' + value4
+
+                    else
+                        li= index1 + ': ' + value1
+        else
+            div(class='alert alert-info', role='alert') Sorry, nobody submitted answers yet.
+
+
+
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js')
+    script(src='js/socket.js')

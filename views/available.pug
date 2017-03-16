@@ -17,14 +17,18 @@ block content
                     else if(index=='id')
                         - var id = value;
                     else
-                        form(method='POST', action='pollExecution')
-                            span= id
-                            input(type='hidden', name='id', value=id)
-                            br
-                            span= value
-                            input(type='hidden', name='pollName', value=value)
-                            br
-                            input(type='submit', value='Execute this Poll')
+                        div.availablePoll
+                            form(method='POST', action='pollExecution')
+                                h4.pollTitle= value
+                                span.pollCreator Creator: #{creator}
+                                input(type='hidden', name='id', value=id)
+                                input(type='hidden', name='pollName', value=value)
+                                br
+                                input(type='submit', value='Execute this Poll')
+                            form(method='POST', action='answers')
+                                input(type='hidden', name='id', value=id)
+                                input(type='hidden', name='pollName', value=value)
+                                input(type='submit', value='Show Answers')
 
             else
                 span Sorry there are no polls available
@@ -38,3 +42,4 @@ block content
                 each item in public_polls
                     each value, index in item
                         li= index + ': ' + value
+

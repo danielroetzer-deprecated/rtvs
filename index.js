@@ -63,12 +63,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 
 
-//Listener
-//======================================================
-app.listen(config.server.port, function () {
-    logger.log('info','express configured');
-    logger.log('info','listening on port: ' + config.server.port);
-});
+
 
 
 
@@ -83,7 +78,7 @@ app.use(function(req, res, next) {
 //error handler, displays error messages in the browser
 //only keep this activated in development
 //======================================================
-app.use(function(err, req, res, next) {
+app.use(function(err, req, res) {
     // set locals, only providing error in development
     res.locals.message = err.message;
     res.locals.error = req.app.get('env') === 'development' ? err : {};
@@ -92,6 +87,72 @@ app.use(function(err, req, res, next) {
     res.status(err.status || 500);
     res.render('templates/error');
 });
+
+
+
+
+
+const http = require('http').createServer(app);
+const io = require('socket.io')(http);
+
+
+io.on('connection', function(socket){
+
+    require('./models/changes')(socket);
+
+    socket.on('answerUpdate', function(data){
+        io.emit('answerUpdate', data);
+    });
+});
+
+
+
+//Listener
+//======================================================
+http.listen(config.server.port, function () {
+    logger.log('info','express configured');
+    logger.log('info','listening on port: ' + config.server.port);
+});
+
+
+
+/*
+io.sockets.on('connection', function(socket){
+
+    r.connect(config.rethinkdb, function (err, conn) {
+        if (err) checkError(err, 'controllers/controller.js -> realTimeAction()');
+        else{
+            r.table('polls').pluck('id','creator').changes().run(conn,function (err, cursor){
+                if (err) checkError(err, 'controllers/controller.js -> realTimeAction()');
+                else{
+
+
+
+                    io.sockets.on('connection', function(socket){
+
+                        cursor.each(function (err, results) {
+                            if (err) checkError(err, 'controllers/controller.js -> realTimeAction()');
+                            else{
+                                logger.log('silly', results);
+                                socket.emit('realtime', results);
+                            }
+                        });
+                    });
+
+
+                }
+            });
+        }
+    });
+});
+
+//Log messages on error
+function checkError(err, msg) {
+    logger.log('error',msg + '\n' + err);
+}*/
+
+
+
 
 
 
@@ -106,7 +167,7 @@ db.setup();*/
 
 
 
-const polls = require('./models/polls');
+//const polls = require('./models/polls');
 
 
 /*

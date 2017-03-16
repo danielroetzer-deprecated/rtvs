@@ -12,48 +12,51 @@ $(document).ready(function () {
     $('#type1').change(function() {
 
         if(($('#type1').val())==(1)){
-            $('.changeMe').text('1');
 
             $('.inner1').remove();
 
             $('.xxx1').append(
                 '<div class="inner1">'+
-                    '<input class="multi1" type="text" name="multi1" placeholder="Enter text for checkbox here"><br>'
+                    '<input class="multi1" type="text" name="multi00" placeholder="Enter text for checkbox here"><br>'
                     +
-                    '<input class="multi1" type="text" name="multi1" placeholder="Enter text for checkbox here"><br>'
+                    '<input class="multi1" type="text" name="multi01" placeholder="Enter text for checkbox here"><br>'
                     +
-                    '<input class="multi1" type="text" name="multi1" placeholder="Enter text for checkbox here"><br>'
+                    '<input class="multi1" type="text" name="multi02" placeholder="Enter text for checkbox here"><br>'
                     +
-                    '<input class="multi1" type="text" name="multi1" placeholder="Enter text for checkbox here"><br>'
+                    '<input class="multi1" type="text" name="multi03" placeholder="Enter text for checkbox here"><br>'
+                    +
+                    '<input type="hidden" name="hiddenType1" value="multi">'
                 +'</div>'
             );
 
         }
         else if(($('#type1').val())==(2)){
-            $('.changeMe').text('2');
 
             $('.inner1').remove();
 
             $('.xxx1').append(
                 '<div class="inner1">'+
-                    '<input class="single1" type="text" name="single1" placeholder="Enter text for checkbox here"><br>'
+                    '<input class="single1" type="text" name="single00" placeholder="Enter text for checkbox here"><br>'
                     +
-                    '<input class="single1" type="text" name="single1" placeholder="Enter text for checkbox here"><br>'
+                    '<input class="single1" type="text" name="single01" placeholder="Enter text for checkbox here"><br>'
                     +
-                    '<input class="single1" type="text" name="single1" placeholder="Enter text for checkbox here"><br>'
+                    '<input class="single1" type="text" name="single02" placeholder="Enter text for checkbox here"><br>'
                     +
-                    '<input class="single1" type="text" name="single1" placeholder="Enter text for checkbox here"><br>'
+                    '<input class="single1" type="text" name="single03" placeholder="Enter text for checkbox here"><br>'
+                    +
+                    '<input type="hidden" name="hiddenType1" value="single">'
                 +'</div>'
             );
         }
         else if(($('#type1').val())==(3)){
-            $('.changeMe').text('3');
 
             $('.inner1').remove();
 
             $('.xxx1').append(
                 '<div class="inner1">'+
-                    '<textarea class="textarea1" name="textarea1">xxx</textarea>'
+                    'User gets a text field to fill out'
+                    +
+                    '<input type="hidden" name="hiddenType1" value="text">'
                 +'</div>'
             );
         }
@@ -61,6 +64,15 @@ $(document).ready(function () {
         //$('<h4>It worked</h4>').replaceAll('.multi1');
 
     });
+
+    /*
+    const socket = io.connect();
+
+    socket.on('realtime', function (data) {
+        $('#test').text('YES!!');
+        console.log('xxx');
+    });*/
+
 });
 
 /*

@@ -39,10 +39,11 @@ class test{
     }
 }
 
+/*
 //Log messages on success
 function success(result, msg) {
     logger.log('verbose',msg + '\n' + JSON.stringify(result, null, 2));
-}
+}*/
 
 //Log messages on error
 function checkError(err, msg) {
