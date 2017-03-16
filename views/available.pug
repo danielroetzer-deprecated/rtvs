@@ -7,7 +7,7 @@ block content
         p.
             Here you find all polls, which are available for you.
 
-        h2.header Public Polls
+
 
         div
             each item in public_polls
@@ -31,15 +31,11 @@ block content
                                 input(type='submit', value='Show Answers')
 
             else
-                span Sorry there are no polls available
+                span.alert.alert-info(role='alert') Sorry there are no polls available
 
 
-        h2.header Private Polls
 
 
-        //
-            ul
-                each item in public_polls
-                    each value, index in item
-                        li= index + ': ' + value
+
+
 

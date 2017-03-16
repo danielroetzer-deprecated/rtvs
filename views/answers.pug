@@ -1,12 +1,6 @@
 extends templates/layout
 
-block append head
-    //Load jquery
-    script(src='js/jquery/jquery-3.1.1.min.js')
-
 block content
-    br
-    br
     .container
 
         each value0, index0 in answers
@@ -29,5 +23,7 @@ block content
 
 
 
+    //Load necessary javascript
+    script(src='js/jquery/jquery-3.1.1.min.js')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js')
-    script(src='js/socket.js')
+    script(src='js/rtvs.min.js')
