@@ -12,7 +12,7 @@ const logger = new winston.Logger({
     transports: [
         new winston.transports.File({
             level: 'warn',
-            filename: './logs/logs.log',
+            filename: './logs/caughtExceptions.log',
             json: true,
             timestamp: new Date(),
             maxsize: 5242880, //5MB
@@ -29,7 +29,7 @@ const logger = new winston.Logger({
     ],
     exceptionHandlers: [
         new winston.transports.File({
-            filename: 'logs/exceptions.log',
+            filename: 'logs/uncaughtExceptions.log',
             json: false
         })
     ]

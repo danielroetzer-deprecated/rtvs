@@ -20,7 +20,7 @@ const src  = {
     'stylus': 'stylus/index.styl',
     'stylusAll': 'stylus/**/*.styl',
     'js': 'js/**/*.js',
-    'lint': ['**/*.js', '!node_modules/**', '!public/**'],
+    'lint': ['**/*.js', '!node_modules/**', '!public/**', '!models/db_OLD.js'],
     'pugLint': 'views/**/*.pug'
 };
 
@@ -76,4 +76,4 @@ gulp.task('watch', function() {
 
 
 // Default Task
-gulp.task('default', ['watch']);
+gulp.task('default', ['lint','pug-lint', 'stylus', 'scripts']);

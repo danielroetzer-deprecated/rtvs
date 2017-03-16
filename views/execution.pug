@@ -1,46 +1,9 @@
 extends templates/layout
 
 block content
-    br
-    br
     .container
-        //ul
-            each value, index in result
-                if (value=='[object Object]')
-                    li= index + ':'
-                    ul
-                        each x in value
-                            each y,z in x
-                                li= z + ':'
-                                ul
-                                    each u,w in y
-                                        li= w + ': ' + u
-                else
-                    li= index + ': ' + value
 
-
-        br
-        br
-        br
-
-
-        //ul
-            each value0, index0 in result
-                li= index0 + ':'
-                ul
-                    each index1 in value0
-                        each value2,index2 in index1
-                            li= index2 + ':'
-                            ul
-                                each value3,index3 in value2
-                                    li= index3 + ': ' + value3
-
-
-        br
-        br
-
-        h2= pollName
-        br
+        h1.header= pollName
 
         div
             form(method='POST', action='storeAnswers')
