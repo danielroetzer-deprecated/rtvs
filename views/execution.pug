@@ -1,17 +1,10 @@
 extends templates/layout
 
 block content
+    br
+    br
     .container
-        span= id
-        br
-        br
-        span= pollName
-
-        br
-        br
-        br
-
-        ul
+        //ul
             each value, index in result
                 if (value=='[object Object]')
                     li= index + ':'
@@ -24,3 +17,85 @@ block content
                                         li= w + ': ' + u
                 else
                     li= index + ': ' + value
+
+
+        br
+        br
+        br
+
+
+        //ul
+            each value0, index0 in result
+                li= index0 + ':'
+                ul
+                    each index1 in value0
+                        each value2,index2 in index1
+                            li= index2 + ':'
+                            ul
+                                each value3,index3 in value2
+                                    li= index3 + ': ' + value3
+
+
+        br
+        br
+
+        h2= pollName
+        br
+
+        div
+            form(method='POST', action='storeAnswers')
+                each value0, index0 in result
+                    each index1 in value0
+                        each value2,index2 in index1
+                            each value3,index3 in value2
+                                if(index3=='content')
+                                    - var content= value3
+                                else if(index3=='title')
+                                    h4= value3
+                                    - var title= value3
+                                else if(index3=='type')
+                                    if(value3=='multi')
+                                        input(type='checkbox', name='multi', value=content[0])
+                                        span= content[0]
+                                        br
+                                        input(type='checkbox', name='multi', value=content[1])
+                                        span= content[1]
+                                        br
+                                        input(type='checkbox', name='multi', value=content[2])
+                                        span= content[2]
+                                        br
+                                        input(type='checkbox', name='multi', value=content[3])
+                                        span= content[3]
+                                        br
+                                        input(type='hidden', name='hiddenType', value='multi')
+                                        input(type='hidden', name='id', value=id)
+                                        input(type='hidden', name='title', value=title)
+                                    else if(value3=='single')
+                                        input(type='radio', name='single', value=content[0])
+                                        span= content[0]
+                                        br
+                                        input(type='radio', name='single', value=content[1])
+                                        span= content[1]
+                                        br
+                                        input(type='radio', name='single', value=content[2])
+                                        span= content[2]
+                                        br
+                                        input(type='radio', name='single', value=content[3])
+                                        span= content[3]
+                                        br
+                                        input(type='hidden', name='hiddenType', value='single')
+                                        input(type='hidden', name='id', value=id)
+                                        input(type='hidden', name='title', value=title)
+                                    else
+                                        textarea(name='textarea', placeholder='Enter text here')
+                                        input(type='hidden', name='hiddenType', value='text')
+                                        input(type='hidden', name='id', value=id)
+                                        input(type='hidden', name='title', value=title)
+
+                br
+                br
+                input(type="submit" value="Store")
+
+
+
+
