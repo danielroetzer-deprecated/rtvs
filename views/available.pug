@@ -18,17 +18,20 @@ block content
                         - var id = value;
                     else
                         div.availablePoll
-                            form(method='POST', action='pollExecution')
+                            div.placement-left
                                 h4.pollTitle= value
                                 span.pollCreator Creator: #{creator}
-                                input(type='hidden', name='id', value=id)
-                                input(type='hidden', name='pollName', value=value)
-                                br
-                                input(type='submit', value='Execute this Poll')
-                            form(method='POST', action='answers')
-                                input(type='hidden', name='id', value=id)
-                                input(type='hidden', name='pollName', value=value)
-                                input(type='submit', value='Show Answers')
+                            div.placement-right
+                                form(method='POST', action='pollExecution')
+                                    input(type='hidden', name='id', value=id)
+                                    input(type='hidden', name='pollName', value=value)
+                                    br
+                                    input(type='submit', value='Execute this Poll')
+                            div.placement-right
+                                form(method='POST', action='answers')
+                                    input(type='hidden', name='id', value=id)
+                                    input(type='hidden', name='pollName', value=value)
+                                    input(type='submit', value='Show Answers')
 
             else
                 span.alert.alert-info(role='alert') Sorry there are no polls available
