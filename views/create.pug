@@ -7,15 +7,16 @@ block content
 
         form(action='/store', method='POST')
             | Poll Title:
-            input(type='text', name='pollTitle', placeholder='Enter poll title here')
             br
-            br
+            input.pollTitle(type='text', name='pollTitle', placeholder='Enter poll title here')
 
             h3.header Question
-            input(type='text', name='question1', placeholder='Enter question here')
+            | Question Title:
+            br
+            input.questionTitle(type='text', name='question1', placeholder='Enter question here')
             br
             br
-            | Choose question type
+            | Choose question type:
             select.type1#type1(name='type1')
                 option(value='1') Multiple Choice
                 option(value='2') Single Choice
@@ -37,7 +38,6 @@ block content
                     input.multi1(type='text', name='multi03', placeholder='Enter text for checkbox here')
 
                     input(type='hidden', name="hiddenType1", value='multi')
-            br
             br
 
             input(type='submit', value='Create Poll')
