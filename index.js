@@ -59,9 +59,10 @@ logger.log('verbose','routing paths set');
 //catch 404 and forward to error handler
 //======================================================
 app.use(function(req, res, next) {
-    const err = new Error('Not Found');
-    err.status = 404;
-    next(err);
+    //const err = new Error('Not Found');
+    //err.status = 404;
+    //next(err);
+    res.render('templates/error.pug');
 });
 
 //error handler, displays error messages in the browser
@@ -74,7 +75,7 @@ app.use(function(err, req, res) {
 
     // render the error page
     res.status(err.status || 500);
-    res.render('templates/error');
+    res.render('error.pug');
 });
 
 
@@ -104,7 +105,6 @@ http.listen(config.server.port, function () {
     logger.log('info','express configured');
     logger.log('info','listening on port: ' + config.server.port);
 });
-
 
 
 
