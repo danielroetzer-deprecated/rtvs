@@ -237,8 +237,8 @@ function storeAnswersAction(req, res){
             checkError(err, 'controllers/controller.js --> storeAnswersAction()');
         }else{
             r.table('answers').insert({
-                poll_key: req.body.id,
-                user: 'admin',
+                poll: req.body.id,
+                user: 'admin@gmail.com',
                 answers: [answers]
             }).run(conn,function (err, result) {
                 if(err) {
@@ -268,7 +268,7 @@ function showAnswersAction(req, res){
     r.connect(config.rethinkdb, function (err, conn) {
         if (err) checkError(err, 'controllers/controller.js --> showAnswersAction()');
         else{
-            r.table('answers').filter({poll_key: req.body.id}).run(conn, function (err, cursor) {
+            r.table('answers').filter({poll: req.body.id}).run(conn, function (err, cursor) {
                 if (err) checkError(err, 'controllers/controller.js --> showAnswersAction()');
                 else{
                     cursor.toArray(function (err, results) {
